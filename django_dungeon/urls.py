@@ -19,5 +19,5 @@ import rooms.views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('/', rooms.views.index, name='index')
+    path('', rooms.views.index, name='index')
 ]
