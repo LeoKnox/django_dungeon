@@ -1,4 +1,4 @@
-"""django_dungeon URL Configuration
+"""dungeon URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/3.1/topics/http/urls/
@@ -15,9 +15,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-import rooms.views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', rooms.views.index, name='index')
+    path('', views.index, name='index'),
 ]
