@@ -3,5 +3,7 @@ from django.http import HttpResponse
 from rooms.models import Room
 
 def index(request):
-    context = Room.objects.all()
-    return render(request, 'index.html', {})
+    room_data = Room.objects.all().values()
+    context = {'rooms':room_data}
+    print(context)
+    return render(request, 'index.html', context)
