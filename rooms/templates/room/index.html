@@ -3,7 +3,20 @@
 {% block content %}
 <h1>Creating Dungeons Learning Programming</h1>
 
-{% for room in rooms %}
-    <p>Room: {{ room.name }}</p>
-{% endfor %}
+<table>
+    <th>
+        <td>Name</td>
+        <td>Width</td>
+        <td>Length</td>
+        <td>Actions</td>
+    </th>
+    {% for room in rooms %}
+    <tr>
+        <td>{{ room.name }}</td>
+        <td>{{ room.width }}</td>
+        <td>{{ room.length }}</td>
+        <td>Go!</td>
+    </tr>
+    {% endfor %}
+</table>
 {% endblock %}
