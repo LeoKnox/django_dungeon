@@ -1,4 +1,8 @@
 from django.shortcuts import render
+from rooms.models import Room
+
 
 def index(request):
-    return render(request, 'rooms/index.html', {})
+    room_data = Room.objects.values()
+    print(room_data)
+    return render(request, 'room/index.html', {'rooms': room_data})
