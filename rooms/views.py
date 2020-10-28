@@ -27,4 +27,12 @@ def delete(request, room_id):
     return redirect('/index/')
 
 def edit(request, room_id):
-    return render(request, 'room/edit.html', {})
+    room = Room.objects.get(id = room_id)
+    room_data = {
+        'name': room.name,
+        'description': room.description,
+        'width': room.width,
+        'length': room.length
+    }
+    form = RoomForm(initial=room_data)
+    return render(request, 'room/edit.html', {'form': form})
