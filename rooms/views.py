@@ -27,6 +27,15 @@ def delete(request, room_id):
     return redirect('/index/')
 
 def edit(request, room_id):
+    new_room = RoomForm(request.POST or None)
+    if new_room.is_valid():
+        update = Room.objects.get(id = room_id)
+        update.name = request.POST.get('name')
+        update.description = request.POST.get('description')
+        update.width= request.POST.get('width')
+        update.length = request.POST.get('length')
+        update.save()
+        return redirect('/index/')
     room = Room.objects.get(id = room_id)
     room_data = {
         'name': room.name,
