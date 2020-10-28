@@ -21,3 +21,7 @@ def create(request):
         return redirect('/index/')
     context['form'] = form
     return render(request, 'room/create.html', context)
+
+def delete(request, room_id):
+    Room.objects.filter(id=room_id).delete()
+    return redirect('/index/')

@@ -15,7 +15,7 @@
         <td><a href={% url 'room' room.id %}>{{ room.name }}</a></td>
         <td>{{ room.width }}</td>
         <td>{{ room.length }}</td>
-        <td><a href="">Edit</a></td>
+        <td><a href="">Edit</a> <span>&#8226;</span> <a href={% url 'delete' room.id %}>Delete</a></td>
     </tr>
     {% endfor %}
 </table>
