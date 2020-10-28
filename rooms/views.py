@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from rooms.models import Room
+from rooms.forms import RoomForm
 
 
 def index(request):
@@ -12,4 +13,10 @@ def room(request, room_id):
     return render(request, 'room/room.html', {'room_data': room_data[0]})
 
 def create(request):
-    return render(request, 'room/create.html', {})
+    context = {}
+
+    form = RoomForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+    context['form'] = form
+    return render(request, 'room/create.html', context)

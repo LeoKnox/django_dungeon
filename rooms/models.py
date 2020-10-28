@@ -5,3 +5,6 @@ class Room(models.Model):
     description = models.TextField()
     width = models.IntegerField()
     length = models.IntegerField()
+
+def __str__(self):
+    return self.title
