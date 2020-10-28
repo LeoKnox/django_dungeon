@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from rooms.models import Room
 from rooms.forms import RoomForm
 
@@ -18,5 +18,6 @@ def create(request):
     form = RoomForm(request.POST or None)
     if form.is_valid():
         form.save()
+        return redirect('/index/')
     context['form'] = form
     return render(request, 'room/create.html', context)
