@@ -7,4 +7,6 @@ def index(request):
     return render(request, 'room/index.html', {'rooms': room_data})
 
 def room(request, room_id):
-    return render(request, 'room/room.html', {'room_id': room_id})
+    room_data = Room.objects.filter(id=room_id)
+    print(room_data)
+    return render(request, 'room/room.html', {'room_data': room_data[0]})
