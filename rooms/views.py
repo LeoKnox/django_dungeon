@@ -25,3 +25,6 @@ def create(request):
 def delete(request, room_id):
     Room.objects.filter(id=room_id).delete()
     return redirect('/index/')
+
+def edit(request, room_id):
+    return render(request, 'room/edit.html', {})
