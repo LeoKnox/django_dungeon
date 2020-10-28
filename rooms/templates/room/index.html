@@ -12,7 +12,7 @@
     </tr>
     {% for room in rooms %}
     <tr>
-        <td>{{ room.name }}</td>
+        <td><a href={% url 'room' room.id %}>{{ room.name }}</a></td>
         <td>{{ room.width }}</td>
         <td>{{ room.length }}</td>
         <td>Go!</td>
